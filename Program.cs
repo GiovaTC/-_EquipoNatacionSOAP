@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SoapCore;
@@ -8,17 +8,56 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// add services to the container
+// ----------------------------------------------------------------------
+// 🔧 Servicios
+// ----------------------------------------------------------------------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// configure EF Core with Oracle ( connection string in appsettings.json )
+// 🔗 Configurar EF Core con Oracle
 builder.Services.AddDbContext<OracleDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection"))
 );
 
-// register SOAP service
-builder.Services.AddSingleton<IEquipoService, EquipoService>();
+// 🧩 Registrar el servicio SOAP
+builder.Services.AddScoped<IEquipoService, EquipoService>();
 
+// ----------------------------------------------------------------------
+// 🚀 Construir aplicación
+// ----------------------------------------------------------------------
+var app = builder.Build();
 
+// ----------------------------------------------------------------------
+// 🌐 Middleware
+// ----------------------------------------------------------------------
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseRouting();
+app.UseHttpsRedirection();
+app.UseAuthorization();
+
+// ----------------------------------------------------------------------
+// 🧼 Endpoint SOAP
+// ----------------------------------------------------------------------
+// Esto expone el servicio SOAP en: http://localhost:5190/EquipoService.svc
+app.UseEndpoints(endpoints =>
+{
+    endpoints.UseSoapEndpoint<IEquipoService>(
+        "/EquipoService.svc",
+        new SoapEncoderOptions(),
+        SoapSerializer.DataContractSerializer
+    );
+
+    endpoints.MapControllers();
+});
+
+// ----------------------------------------------------------------------
+// ▶️ Iniciar aplicación
+// ----------------------------------------------------------------------
+app.Run();
