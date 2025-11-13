@@ -1,6 +1,6 @@
 # -_EquipoNatacionSOAP
 
-<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/31e21391-810e-46c7-8bab-10a3f3c7319a" />  
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/980abca4-23af-41b2-b0bd-269a5780db4f" />    
 
 Servicio SOAP en **.NET 8.0** para registrar y consultar equipos de natación.  
 Este repositorio contiene:
