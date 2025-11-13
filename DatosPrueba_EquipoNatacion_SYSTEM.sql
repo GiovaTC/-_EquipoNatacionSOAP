@@ -1,5 +1,5 @@
 -- ==============================================================
--- 🏊 Datos de prueba - EquipoNatacion SOAP
+-- ? Datos de prueba - EquipoNatacion SOAP
 -- Usuario: SYSTEM
 -- Base de datos: Oracle 19c
 -- ==============================================================
@@ -8,13 +8,13 @@
 --   SYSTEM.MIEMBRO_EQUIPO
 -- ==============================================================
 
--- 🧹 Limpiar datos anteriores
+-- ? Limpiar datos anteriores
 DELETE FROM SYSTEM.MIEMBRO_EQUIPO;
 DELETE FROM SYSTEM.EQUIPO_NATACION;
 COMMIT;
 
 -- ==============================================================
--- 🚀 Insertar equipos (13 registros)
+-- ? Insertar equipos (13 registros)
 -- ==============================================================
 
 INSERT INTO SYSTEM.EQUIPO_NATACION (ID_EQUIPO, NOMBRE_EQUIPO, ENTRENADOR, CIUDAD, CANTIDAD_MIEMBROS)
@@ -47,7 +47,7 @@ VALUES (13, 'AquaStars',           'Fernanda Díaz',    'Cali',             3);
 COMMIT;
 
 -- ==============================================================
--- 🧍‍♂️ Insertar miembros (39 nadadores, 3 por equipo)
+-- ???? Insertar miembros (39 nadadores, 3 por equipo)
 -- ==============================================================
 
 -- Equipo 1
@@ -117,3 +117,27 @@ INSERT INTO SYSTEM.MIEMBRO_EQUIPO VALUES (DEFAULT, 13, 'Carlos Pardo', 25, '100m
 INSERT INTO SYSTEM.MIEMBRO_EQUIPO VALUES (DEFAULT, 13, 'Isabella Díaz', 23, '200m Libre', '02:06.7');
 
 COMMIT;
+
+-- ============================================================
+-- ? Consulta completa de Equipos de Natación y sus Miembros
+-- ============================================================
+
+SELECT 
+    e.ID_EQUIPO,
+    e.NOMBRE_EQUIPO,
+    e.ENTRENADOR,
+    e.CIUDAD,
+    e.CANTIDAD_MIEMBROS,
+    TO_CHAR(e.FECHA_REGISTRO, 'YYYY-MM-DD HH24:MI:SS') AS FECHA_REGISTRO,
+    m.ID_MIEMBRO,
+    m.NOMBRE_MIEMBRO,
+    m.EDAD,
+    m.ESTILO,
+    m.TIEMPO_MEJOR
+FROM 
+    SYSTEM.EQUIPO_NATACION e
+    INNER JOIN SYSTEM.MIEMBRO_EQUIPO m 
+        ON e.ID_EQUIPO = m.ID_EQUIPO
+ORDER BY 
+    e.ID_EQUIPO,
+    m.ID_MIEMBRO;
