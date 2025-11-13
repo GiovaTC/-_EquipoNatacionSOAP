@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="5d226db4-a694-446a-bd9a-9ad2c33e8ce6" activeEnvironment="Default" name="EquipoService" resourceRoot="" soapui-version="5.9.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="dbd1bc37-36af-4b81-a537-32360c85e45b" wsaVersion="NONE" name="BasicHttpBinding_IEquipoService" type="wsdl" bindingName="{http://tempuri.org/}BasicHttpBinding_IEquipoService" soapVersion="1_1" anonymous="optional" definition="file:/C:/Users/USUARIO/source/repos/EquipoNatacionSOAP/EquipoNatacionSOAP/EquipoService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\USUARIO\source\repos\EquipoNatacionSOAP\EquipoNatacionSOAP\EquipoService.wsdl"><con:part><con:url>file:\C:\Users\USUARIO\source\repos\EquipoNatacionSOAP\EquipoNatacionSOAP\EquipoService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" name="IEquipoService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://tempuri.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.microsoft.com/ws/06/2004/policy/http" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:element name="RegistrarEquipoNatacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="xmlDatos" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="RegistrarEquipoNatacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="RegistrarEquipoNatacionResult" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConsultarEquipoNatacion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="nombreEquipo" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ConsultarEquipoNatacionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="1" name="ConsultarEquipoNatacionResult" nillable="true" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:element name="anyType" nillable="true" type="xs:anyType"/>
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI"/>
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+      <xs:element name="boolean" nillable="true" type="xs:boolean"/>
+      <xs:element name="byte" nillable="true" type="xs:byte"/>
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime"/>
+      <xs:element name="decimal" nillable="true" type="xs:decimal"/>
+      <xs:element name="double" nillable="true" type="xs:double"/>
+      <xs:element name="float" nillable="true" type="xs:float"/>
+      <xs:element name="int" nillable="true" type="xs:int"/>
+      <xs:element name="long" nillable="true" type="xs:long"/>
+      <xs:element name="QName" nillable="true" type="xs:QName"/>
+      <xs:element name="short" nillable="true" type="xs:short"/>
+      <xs:element name="string" nillable="true" type="xs:string"/>
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte"/>
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt"/>
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong"/>
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort"/>
+      <xs:element name="char" nillable="true" type="tns:char"/>
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int"/>
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration"/>
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?"/>
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S"/>
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid"/>
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName"/>
+      <xs:attribute name="Id" type="xs:ID"/>
+      <xs:attribute name="Ref" type="xs:IDREF"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IEquipoService_RegistrarEquipoNatacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarEquipoNatacion"/>
+  </wsdl:message>
+  <wsdl:message name="IEquipoService_RegistrarEquipoNatacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrarEquipoNatacionResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IEquipoService_ConsultarEquipoNatacion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarEquipoNatacion"/>
+  </wsdl:message>
+  <wsdl:message name="IEquipoService_ConsultarEquipoNatacion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultarEquipoNatacionResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IEquipoService">
+    <wsdl:operation name="RegistrarEquipoNatacion">
+      <wsdl:input wsam:Action="http://tempuri.org/IEquipoService/RegistrarEquipoNatacion" message="tns:IEquipoService_RegistrarEquipoNatacion_InputMessage"/>
+      <wsdl:output wsam:Action="http://tempuri.org/IEquipoService/RegistrarEquipoNatacionResponse" message="tns:IEquipoService_RegistrarEquipoNatacion_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEquipoNatacion">
+      <wsdl:input wsam:Action="http://tempuri.org/IEquipoService/ConsultarEquipoNatacion" message="tns:IEquipoService_ConsultarEquipoNatacion_InputMessage"/>
+      <wsdl:output wsam:Action="http://tempuri.org/IEquipoService/ConsultarEquipoNatacionResponse" message="tns:IEquipoService_ConsultarEquipoNatacion_OutputMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IEquipoService" type="tns:IEquipoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="RegistrarEquipoNatacion">
+      <soap:operation soapAction="http://tempuri.org/IEquipoService/RegistrarEquipoNatacion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarEquipoNatacion">
+      <soap:operation soapAction="http://tempuri.org/IEquipoService/ConsultarEquipoNatacion" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IEquipoService">
+    <wsdl:port name="BasicHttpBinding_IEquipoService" binding="tns:BasicHttpBinding_IEquipoService">
+      <soap:address location="http://localhost:5190/EquipoService.svc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:5190/EquipoService.svc</con:endpoint></con:endpoints><con:operation id="6e6ffb3f-13ae-449b-970b-070a3d38566e" isOneWay="false" action="http://tempuri.org/IEquipoService/ConsultarEquipoNatacion" name="ConsultarEquipoNatacion" bindingOperationName="ConsultarEquipoNatacion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e7ba338b-dcbd-4389-8504-7c83ebfc27a3" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5190/EquipoService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:ConsultarEquipoNatacion>\r
+         <tem:nombreEquipo>AquaStars</tem:nombreEquipo>\r
+      </tem:ConsultarEquipoNatacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IEquipoService/ConsultarEquipoNatacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="99cf4b4c-e62d-4d0a-bac0-3c814812b141" isOneWay="false" action="http://tempuri.org/IEquipoService/RegistrarEquipoNatacion" name="RegistrarEquipoNatacion" bindingOperationName="RegistrarEquipoNatacion" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1473026e-77a0-48a5-a45e-785bb3e0e490" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:5190/EquipoService.svc</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:RegistrarEquipoNatacion>\r
+         <tem:xmlDatos>?</tem:xmlDatos>\r
+      </tem:RegistrarEquipoNatacion>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/IEquipoService/RegistrarEquipoNatacion"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
